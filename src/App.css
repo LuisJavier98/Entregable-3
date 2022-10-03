@@ -13,7 +13,7 @@ body {
 
 :root {
     --color: #25252a;
-    --size: 12px;
+    --size: 14px;
     --percent:30%
 }
 
@@ -112,7 +112,21 @@ h2 {
 }
 @media(max-width:600px)
 {
+    :root {
+        --size: 12px;
+    }
+
+
     .card_properties {
         grid-template-columns: repeat(1,1fr) ;
     }
 }
+@media(max-width:480px){
+    :root {
+        --size: 10px;
+    }
+}
+@media(max-width:350px){
+    :root {
+        --size: 8px;
+    }
