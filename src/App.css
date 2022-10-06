@@ -1,14 +1,25 @@
 body {
-    width: 100%;
+    max-width: 720px;
     height: 100vh;
     margin: 0px auto;
     box-sizing: border-box;
     background-color: #171719;
 }
 
+body::-webkit-scrollbar {
+    background-color: var(--color);
+    border-radius: 10px;
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(102, 97, 97);
+    border-radius: 5px;
+}
+
 .App {
-    width: 80vw;
-    margin: 0px auto;
+    width: 80%;
+    margin: 0px 10%;
 }
 
 :root {
@@ -40,6 +51,16 @@ input {
 
 }
 
+.card_buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_change {
+    margin: 5%;
+    border-radius: 10px;
+}
+
 button {
     background-color: var(--color);
     border: 1px solid white;
@@ -49,6 +70,7 @@ button {
     border-radius: 0px 10px 10px 0px;
     cursor: pointer;
 }
+
 button:hover {
     transform: scale(0.9);
 }
@@ -76,31 +98,53 @@ h2 {
 
 .card_location li {
     font-size: var(--size);
-
 }
 
 .card_properties {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 8px;
-
 }
 
 .card_info {
     display: flex;
 }
-.card_info:hover{
+
+.card_info:hover {
     transform: scale(1.1);
 }
 
+.card_box {
+    height: 200px;
+    overflow-y: scroll;
+    font-size: var(--size);
+    border: 1px solid var(--color);
+    border-radius: 10px;
 
+}
+
+.card_box::-webkit-scrollbar {
+    background-color: var(--color);
+    border-radius: 10px;
+    width: 10px;
+}
+
+.card_box::-webkit-scrollbar-thumb {
+    background-color: rgb(102, 97, 97);
+    border-radius: 5px;
+}
+
+.card_box ul {
+    list-style: none;
+}
+
+.card_box ul li {
+    margin-top: 5px;
+}
 
 .card_info img {
     width: var(--percent);
-
     border-radius: 10px 0px 0px 10px;
-
-
 }
 
 
@@ -117,10 +161,21 @@ h2 {
     width: 100%;
     background-color: var(--color);
     border-radius: 0px 10px 10px 0px;
-
 }
 
-@media(max-width:600px) {
+.card_buttonPass {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 25px 0;
+}
+
+.button_p {
+   padding: 5%;
+   border-radius: 50%;
+}
+
+@media(max-width:650px) {
     :root {
         --size: 12px;
     }
