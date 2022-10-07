@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Next from '../Images/arrow-next.svg'
+import Before from '../Images/arrow-before.svg'
 
 const ResidentInfo = ({ location, data, dataL, move, setmove }) => {
 
     const [resident, setresident] = useState()
-
+    const number=6
     let id
     id = location?.residents.map(r => Number(r.slice(r.lastIndexOf('/') + 1, r.length)))
     useEffect(() => {
@@ -14,7 +16,7 @@ const ResidentInfo = ({ location, data, dataL, move, setmove }) => {
                 .then(function (res) {
                     let arr = []
                     if (Array.isArray(res.data)) {
-                        for (let i = move; i < move + 5; i++) {
+                        for (let i = move; i < move + number; i++) {
                             if (i < id.length) { arr.push(res.data[i]) }
                         }
                         return setresident(arr)
@@ -30,11 +32,11 @@ const ResidentInfo = ({ location, data, dataL, move, setmove }) => {
     }, [data, dataL, move])
 
     const handleNext = () => {
-        setmove(move + 5)
+        setmove(move + number)
     }
     const handleBefore = () => {
         if (move > 0)
-            setmove(move - 5)
+            setmove(move - number)
     }
     console.log(resident)
     return (
@@ -70,8 +72,8 @@ const ResidentInfo = ({ location, data, dataL, move, setmove }) => {
                 }
             </div>
             <div className='card_buttonPass'>
-            {id?.length > 5 ?
-                <>{move ? <button className='button_p' onClick={handleBefore}>Before</button> : " "} {resident?.length % 5 ? " " : <button className='button_p' onClick={handleNext}>Next</button>}</> : " "}
+            {id?.length > number ?
+                <>{move ? <button className='button_p' onClick={handleBefore}><img src={Before} alt="Before" /></button> : " "} {resident?.length % number ? " " : <button className='button_p' onClick={handleNext}><img src={Next} alt="Next" /></button>}</> : " "}
             </div>
         </div>
     )
