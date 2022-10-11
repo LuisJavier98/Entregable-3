@@ -132,7 +132,7 @@ h2 {
 .card_box::-webkit-scrollbar {
     background-color: var(--color);
     border-radius: 10px;
-    width: 10px;
+    width: 10px
 }
 
 .card_box::-webkit-scrollbar-thumb {
