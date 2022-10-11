@@ -28,10 +28,7 @@ function App() {
     setmove(0)
   }
   const dataL = e => {
-    e.preventDefault()
-    setdataLocation(e.target[0].value)
-    setdatasearch()
-    setmove(0)
+    setdataLocation(e.value)
   }
 
   useEffect(() => {
@@ -73,7 +70,7 @@ function App() {
 
   return (
     <div>
-      <img className='card_principalImage' src='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/c50a4a55883023.5996f8afa3f5c.gif' alt="Rick and Morty" />
+      <div className='card_principalImage'/>
       <div className="App">
         <h1 className='card_title'>Rick and Morty Wiki</h1>
         <Form data={data}

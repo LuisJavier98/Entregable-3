@@ -1,9 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import Select from 'react-select'
 
 const Form = ({ data, dataL, change, doChange, locationG }) => {
+const locations = locationG?.map(function(g) { return {label:g.name,value:g.name}})
 
-  return (
+  return ( 
     <div className='card_buttons'>
       {change ?
         <button className='card_change' onClick={doChange}>Search by name</button>
@@ -11,16 +13,14 @@ const Form = ({ data, dataL, change, doChange, locationG }) => {
         <button className='card_change' onClick={doChange}>Search by id</button>
       }
       {change ?
-        <form onSubmit={data}>
+        <form  className='card_search' onSubmit={data}>
           <input id='search' type="text" autoComplete='off' placeholder='Write a number' />
           <button>Search</button>
         </form> :
-        <div>
-          <form onSubmit={dataL}>
-            <select className='card_box' style={{ color: "white" }}>{locationG.map(g => <option value={g.name}>{g.name}</option>)}</select>
-            <button>Search</button>
-          </form>
-        </div>
+        <Select 
+        className='card_select'
+        options={locations}
+        onChange={dataL}/>
       }
     </div>
   )
