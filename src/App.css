@@ -115,11 +115,10 @@ h2 {
 }
 
 .card_box {
-    height: 200px;
-    overflow-y: scroll;
     font-size: var(--size);
     border: 1px solid var(--color);
-    border-radius: 10px;
+    border-radius:  10px 0px 0px 10px;
+    background-color: #25252a;
 
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Form = ({ data, dataL, change, doChange,locationG }) => {
+const Form = ({ data, dataL, change, doChange, locationG }) => {
 
   return (
     <div className='card_buttons'>
@@ -17,12 +17,9 @@ const Form = ({ data, dataL, change, doChange,locationG }) => {
         </form> :
         <div>
           <form onSubmit={dataL}>
-            <input id='searchL' type="text" autoComplete='off' placeholder='Write a name of location' />
+            <select className='card_box' style={{ color: "white" }}>{locationG.map(g => <option value={g.name}>{g.name}</option>)}</select>
             <button>Search</button>
           </form>
-          <div className='card_box'>
-            <ul style={{color:"white"}}>{locationG.map(g=><li>{g.name}</li> )}</ul>
-          </div>
         </div>
       }
     </div>

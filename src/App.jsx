@@ -29,7 +29,7 @@ function App() {
   }
   const dataL = e => {
     e.preventDefault()
-    setdataLocation(e.target.searchL.value)
+    setdataLocation(e.target[0].value)
     setdatasearch()
     setmove(0)
   }
