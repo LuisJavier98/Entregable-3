@@ -147,9 +147,6 @@ h2 {
 .card_box ul li {
     margin-top: 5px;
 }
-.card_select span div{
-    background-color: #25252a;
-}
 
 .card_info img {
     width: var(--percent);
