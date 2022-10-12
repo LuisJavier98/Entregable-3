@@ -27,6 +27,7 @@ function App() {
   }
   const dataL = e => {
     setdataLocation(e.value)
+    setmove(0)
   }
 
   useEffect(() => {

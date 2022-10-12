@@ -179,8 +179,9 @@ h2 {
     padding: 3%;
     border-radius: 50%;
     margin: 5%;
-    background-color:rgb(177, 163, 163);
+    background-color:rgb(177, 163, 163)
 }
+
 
 @media(max-width:650px) {
     :root {
