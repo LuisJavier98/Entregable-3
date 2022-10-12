@@ -5,9 +5,6 @@ import Locationinfo from './Components/Locationinfo'
 import Form from './Components/Form'
 import ResidentInfo from './Components/ResidentInfo'
 
-
-
-
 function App() {
   const [locationG, setlocationG] = useState()
   const [location, setlocation] = useState()
@@ -18,6 +15,7 @@ function App() {
   let doChange = () => {
     setchange(!change)
     setlocation()
+    setmove(0)
   }
   let random = () => Math.floor(126 * Math.random()) + 1
 
