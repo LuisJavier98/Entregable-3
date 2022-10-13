@@ -1,42 +1,48 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Next from '../Images/arrow-next.svg'
-import Before from '../Images/arrow-before.svg'
 
-const ResidentInfo = ({ location, data, dataL, move, setmove }) => {
+const ResidentInfo = ({ location, move, setmove, group, setgroup }) => {
 
     const [resident, setresident] = useState()
-    const number = 6
-    let id
-    id = location?.residents.map(r => Number(r.slice(r.lastIndexOf('/') + 1, r.length)))
+    const number = 25
+    let id = location?.residents.map(r => Number(r.slice(r.lastIndexOf('/') + 1, r.length)))
+    let abc = []
+    const arrs = function (i) {
+        let ab = []
+        for (let a = i; a < number + i; a++) {
+            if (id[a] != undefined)
+                ab.push(id[a])
+        }
+        return ab
+    }
+    for (let i = 0; i < id?.length; i = i + number) {
+        abc.push(arrs(i))
+    }
     useEffect(() => {
         if (id && id != "") {
+            setgroup(abc)
             URL = `https://rickandmortyapi.com/api/character/${id}`
             axios.get(URL)
                 .then(function (res) {
-                    let arr = []
-                    if (Array.isArray(res.data)) {
-                        for (let i = move; i < move + number; i++) {
-                            if (i < id.length) { arr.push(res.data[i]) }
-                        }
-                        return setresident(arr)
+                    if(Array.isArray(res.data)){
+                    let m = []
+                    for (let i = move * number; i < (Number(move)+1)*number; i++) {
+                        if (res.data[i] != undefined)
+                            m.push(res.data[i])}
+                            return setresident(m)
                     }
-                    else {
-                        return setresident(res.data)
-                    }
-                }
-                )
+                    else return setresident(res.data)
+
+                })
+
                 .catch(err => console.log(err))
         }
         else setresident()
-    }, [data, dataL, move])
+    }, [location, move])
 
-    const handleNext = () => {
-        setmove(move + number)
-    }
-    const handleBefore = () => {
-        if (move > 0)
-            setmove(move - number)
+
+    const after = e => {
+        setmove(e.target.id)
     }
     return (
         <div className='card_residents'>
@@ -71,8 +77,11 @@ const ResidentInfo = ({ location, data, dataL, move, setmove }) => {
                 }
             </div>
             <div className='card_buttonPass'>
-                {id?.length > number ?
-                    <>{move ? <button className='button_p' onClick={handleBefore}><img src={Before} alt="Before" /></button> : " "} {resident?.length % number ? " " : <button className='button_p' onClick={handleNext}><img src={Next} alt="Next" /></button>}</> : " "}
+
+                {
+                    group?.map((g, i) => <button className='button_p' id={i} onClick={after}>{i + 1}</button>)
+                }
+
             </div>
         </div>
     )

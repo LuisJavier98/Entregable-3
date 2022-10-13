@@ -5,6 +5,7 @@ import Locationinfo from './Components/Locationinfo'
 import Form from './Components/Form'
 import ResidentInfo from './Components/ResidentInfo'
 
+
 function App() {
   const [locationG, setlocationG] = useState()
   const [location, setlocation] = useState()
@@ -12,10 +13,13 @@ function App() {
   const [dataLocation, setdataLocation] = useState()
   const [change, setchange] = useState(true)
   const [move, setmove] = useState(0)
+  const [group, setgroup] = useState([])
+
   let doChange = () => {
     setchange(!change)
-    setlocation()
     setmove(0)
+    setgroup([])
+    setlocation()
   }
   let random = () => Math.floor(126 * Math.random()) + 1
 
@@ -24,9 +28,11 @@ function App() {
     setdatasearch(e.target.search.value)
     setdataLocation()
     setmove(0)
+    setgroup([])
   }
   const dataL = e => {
     setdataLocation(e.value)
+    setgroup([])
     setmove(0)
   }
 
@@ -81,10 +87,10 @@ function App() {
           location={location} />
         <ResidentInfo
           location={location}
-          data={data}
-          dataL={dataL} 
           move={move}
-          setmove={setmove}/>
+          setmove={setmove}
+          group={group}
+          setgroup={setgroup}/>
       </div>
     </div>)
 }
