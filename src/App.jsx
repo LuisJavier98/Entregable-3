@@ -4,6 +4,7 @@ import axios from 'axios'
 import Locationinfo from './Components/Locationinfo'
 import Form from './Components/Form'
 import ResidentInfo from './Components/ResidentInfo'
+import TypeWriterEffect from 'react-typewriter-effect'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [change, setchange] = useState(true)
   const [move, setmove] = useState(0)
   const [group, setgroup] = useState([])
+  const [next, setnext] = useState(0)
 
   let doChange = () => {
     setchange(!change)
@@ -29,16 +31,18 @@ function App() {
     setdataLocation()
     setmove(0)
     setgroup([])
+    setnext(0)
   }
   const dataL = e => {
     setdataLocation(e.value)
     setgroup([])
     setmove(0)
+    setnext(0)
   }
 
   useEffect(() => {
-    const add=[]
-    for (let i=1 ;i<=126;i++){add.push(i)}
+    const add = []
+    for (let i = 1; i <= 126; i++) { add.push(i) }
     let URL = `https://rickandmortyapi.com/api/location/${add}`
     axios.get(URL)
       .then(res => setlocationG(res.data))
@@ -73,11 +77,26 @@ function App() {
   }
     , [datasearch, dataLocation, change])
 
+
+
   return (
-    <div>
-      <div className='card_principalImage'/>
+    <div className='sub_body'>
+      <div className='card_principalImage' />
       <div className="App">
-        <h1 className='card_title'>Rick and Morty Wiki</h1>
+
+        <h1 >
+          <TypeWriterEffect 
+            textStyle={{
+              textAlign:'center',
+              fontSize:'40px'
+            }}
+            startDelay={200}
+            cursorColor="white"
+            text="Rick and Morty Wiki"
+            typeSpeed={100}
+          />
+
+        </h1>
         <Form data={data}
           dataL={dataL}
           change={change}
@@ -90,7 +109,9 @@ function App() {
           move={move}
           setmove={setmove}
           group={group}
-          setgroup={setgroup}/>
+          setgroup={setgroup}
+          next={next}
+          setnext={setnext} />
       </div>
     </div>)
 }
