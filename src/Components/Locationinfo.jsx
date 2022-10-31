@@ -1,5 +1,5 @@
 import React from 'react'
-import TypeWriterEffect from 'react-typewriter-effect'
+
 
 const Locationinfo = ({ location }) => {
   return (

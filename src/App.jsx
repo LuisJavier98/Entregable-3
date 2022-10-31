@@ -4,7 +4,6 @@ import axios from 'axios'
 import Locationinfo from './Components/Locationinfo'
 import Form from './Components/Form'
 import ResidentInfo from './Components/ResidentInfo'
-import TypeWriterEffect from 'react-typewriter-effect'
 
 
 function App() {
@@ -84,16 +83,6 @@ function App() {
       <div className='card_principalImage' />
       <div className="App">
         <h1 >
-          <TypeWriterEffect
-            textStyle={{
-              textAlign: 'center',
-              fontSize: '40px'
-            }}
-            startDelay={200}
-            cursorColor="white"
-            text="Rick and Morty Wiki"
-            typeSpeed={100}
-          />
         </h1>
         <Form data={data}
           dataL={dataL}
