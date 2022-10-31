@@ -4,7 +4,7 @@ import React from 'react'
 const Locationinfo = ({ location }) => {
   return (
     <div>
-      <h3 className='card_title'>{location?.name}</h3>
+      <h3 className='card_title2'>{location?.name}</h3>
       <ul className='card_location'>
         <li style={{textAlign:'center'}}><strong>Type:</strong>{location?.type} </li>
         <li style={{textAlign:'center'}}><strong>Dimension:</strong>{location?.dimension}</li>

@@ -49,7 +49,7 @@ const ResidentInfo = ({ location, move, setmove, group, setgroup, next, setnext 
     setmove(e.target.id)
     window.scrollTo(
       {
-        top: 620,
+        top: 0,
         behavior: 'smooth'
       }
 

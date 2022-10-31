@@ -82,7 +82,8 @@ function App() {
     <div className='sub_body'>
       <div className='card_principalImage' />
       <div className="App">
-        <h1 >
+        <h1 className='card_title' >
+          Rick and Morty Wiki
         </h1>
         <Form data={data}
           dataL={dataL}

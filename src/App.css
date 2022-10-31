@@ -7,6 +7,31 @@ body {
   background-image: url(https://images.alphacoders.com/876/876589.jpg);
 }
 
+.card_title {
+  display: block;
+  font-family: monospace;
+  white-space: nowrap;
+  border-right: 4px solid white;
+  width: 19ch;
+  margin: 30px auto;
+  animation: typing 2s steps(19), blink .5s infinite step-end alternate;
+  overflow: hidden;
+  font-size: 40px;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border: transparent;
+  }
+}
+
+
 .sub_body {
   backdrop-filter: blur(5px);
 }
@@ -194,7 +219,7 @@ h2 {
   justify-content: center;
   margin: 25px auto;
   width: 25%;
-  
+
 }
 
 .card_buttonPass::-webkit-scrollbar {
@@ -237,14 +262,32 @@ h2 {
   }
 }
 
-@media(max-width:480px) {
+@media(max-width:530px) {
   :root {
     --size: 15px;
   }
+  .card_title{
+    font-size: 30px;
+  }
 }
 
-@media(max-width:350px) {
+@media(max-width:405px) {
   :root {
     --size: 12px;
+  }
+  .card_title{
+    font-size: 20px;
+  }
+  .card_title2{
+    font-size: 15px;
+  }
+}
+@media(max-width:284px) {
+  
+  .card_title{
+    font-size: 15px;
+  }
+  .card_title2{
+    font-size: 15px;
   }
 }
