@@ -83,19 +83,17 @@ function App() {
     <div className='sub_body'>
       <div className='card_principalImage' />
       <div className="App">
-
         <h1 >
-          <TypeWriterEffect 
+          <TypeWriterEffect
             textStyle={{
-              textAlign:'center',
-              fontSize:'40px'
+              textAlign: 'center',
+              fontSize: '40px'
             }}
             startDelay={200}
             cursorColor="white"
             text="Rick and Morty Wiki"
             typeSpeed={100}
           />
-
         </h1>
         <Form data={data}
           dataL={dataL}
