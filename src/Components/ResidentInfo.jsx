@@ -64,7 +64,7 @@ const ResidentInfo = ({ location, move, setmove, group, setgroup, next, setnext 
   }
   return (
     <div className='card_residents'>
-      <h2 >Residents</h2>
+      <h2 className='card_Resident' >Residents</h2>
       <div className='card_properties '>
         {resident ?
           (Array.isArray(resident) ?

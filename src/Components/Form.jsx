@@ -43,14 +43,14 @@ const Form = ({ data, dataL, change, doChange, locationG }) => {
   return (
     <div className='card_buttons'>
       {change ?
-        <button className='card_change' onClick={doChange}>Search by name</button>
+        <div className='card_change' onClick={doChange}><div className='card_circleLeft'></div></div>
         :
-        <button className='card_change' onClick={doChange}>Search by id</button>
+        <div className='card_change' onClick={doChange}><div className='card_circleRigth'></div></div>
       }
       {change ?
         <form className='card_search' onSubmit={data}>
           <input id='search' type="text" autoComplete='off' placeholder='Write a number' />
-          <button>Search</button>
+          <button className='button_search'>Search</button>
         </form> :
         <Select
           styles={customStyles}
